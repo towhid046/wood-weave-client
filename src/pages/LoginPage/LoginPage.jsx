@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../providers/ContextProvider/ContextProvider";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import { scrollToTop } from './../../utilities/scrollToTop';
+import swal from "sweetalert";
 
 const Login = () => {
   const { loginUser, logInWithGoogle, logInWithGithub } =
@@ -26,11 +27,7 @@ const Login = () => {
 
     loginUser(email, password)
       .then((res) => {
-        toast.success(`Log in Success`, {
-          position: "top-right",
-          autoClose: 3000,
-          theme: "dark",
-        });
+        swal('Login Success', 'You have login successfully', 'success')
         e.target.reset();
         navigate(location?.state ? location.state : '/')
       })
@@ -54,11 +51,8 @@ const Login = () => {
   const handelLogInWithGoogle = () => {
     logInWithGoogle()
       .then((res) => {
-        toast.success(`Log in Success`, {
-          position: "top-right",
-          autoClose: 3000,
-          theme: "dark",
-        });
+        swal('Login Success', 'You have login successfully', 'success')
+
         navigate(location?.state ? location.state : '/')
       })
       .catch((err) => {
@@ -69,11 +63,7 @@ const Login = () => {
   const handelLogInWithGithub = () => {
     logInWithGithub()
       .then((res) => {
-        toast.success(`Log in Success`, {
-          position: "top-right",
-          autoClose: 3000,
-          theme: "dark",
-        });
+        swal('Login Success', 'You have login successfully', 'success')
         navigate(location?.state ? location.state : '/')
       })
       .catch((err) => {

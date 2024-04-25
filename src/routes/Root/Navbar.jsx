@@ -14,12 +14,16 @@ const Navbar = () => {
       <li>
         <NavLink to={"/all-crafts"}>All Crafts</NavLink>
       </li>
-      <li>
-        <NavLink to={"/add-craft"}>Add Craft</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/my-craft"}>My Craft</NavLink>
-      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink to={"/add-craft"}>Add Craft</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/my-craft"}>My Craft</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
 

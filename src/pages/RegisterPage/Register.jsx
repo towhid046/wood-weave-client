@@ -110,18 +110,8 @@ const Register = () => {
                   required
                 />
               </div>
-              <div>
-                <label className="label">
-                  <strong className="label-text">Photo URL</strong>
-                </label>
-                <input
-                  type="text"
-                  name="imgurl"
-                  placeholder="Enter your photo url"
-                  className="focus:outline-none input w-full rounded-lg outline-none bg-[#f3f3f3]"
-                  required
-                />
-              </div>
+
+
               <div>
                 <label className="label">
                   <strong className="label-text">Email</strong>
@@ -130,6 +120,18 @@ const Register = () => {
                   type="email"
                   name="email"
                   placeholder="Enter your email"
+                  className="focus:outline-none input w-full rounded-lg outline-none bg-[#f3f3f3]"
+                  required
+                />
+              </div>
+              <div>
+                <label className="label">
+                  <strong className="label-text">Photo URL</strong>
+                </label>
+                <input
+                  type="text"
+                  name="imgurl"
+                  placeholder="Enter your photo url"
                   className="focus:outline-none input w-full rounded-lg outline-none bg-[#f3f3f3]"
                   required
                 />
