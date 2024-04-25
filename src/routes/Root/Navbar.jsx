@@ -1,5 +1,11 @@
-import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { UserContext } from "../../providers/ContextProvider/ContextProvider";
+import swal from "sweetalert";
 const Navbar = () => {
+  const { user, loading, logOutUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
   const links = (
     <>
       <li>
@@ -16,6 +22,17 @@ const Navbar = () => {
       </li>
     </>
   );
+
+  const handleLogOutUser = () => {
+    logOutUser()
+      .then((res) => {
+        swal("Log Out", "You have logout successfully!", "success");
+        navigate("/");
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   return (
     <nav className="shadow-sm sticky top-0 z-50 bg-white">
@@ -40,19 +57,47 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="gap-4  menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">WoodWeave</a>
+          <Link className="btn btn-ghost md:text-2xl text-xl font-bold">
+            WoodWeave
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{links}</ul>
+          <ul className="gap-4 menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end gap-3">
-          <Link className="btn btn-primary">Register</Link>
-          <Link className="btn btn-info">Login</Link>
+          {loading ? (
+            <div className="loading loading-spinner loading-md"></div>
+          ) : (
+            <>
+              {user ? (
+                <div className="flex items-center gap-4">
+                  <img
+                    className="w-10 rounded-full h-10 cursor-pointer"
+                    src={user?.photoURL}
+                    alt="User"
+                    title={user?.displayName}
+                  />
+                  <button onClick={handleLogOutUser} className="btn btn-error">
+                    Log Out
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <Link to={"register"} className="btn btn-primary">
+                    Register
+                  </Link>
+                  <Link to={"login"} className="btn btn-info">
+                    Login
+                  </Link>
+                </>
+              )}
+            </>
+          )}
         </div>
       </div>
     </nav>
