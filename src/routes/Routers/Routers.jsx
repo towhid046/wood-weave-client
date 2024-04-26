@@ -20,7 +20,7 @@ const routers = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
-        loader: () => fetch("http://localhost:5000/crafts"),
+        loader: () => fetch("https://assignment-10-server-side-liart.vercel.app/crafts"),
       },
       {
         path: "/register",
@@ -33,7 +33,7 @@ const routers = createBrowserRouter([
       {
         path: "/all-crafts",
         element: <AllCraftsPage />,
-        loader: () => fetch("http://localhost:5000/crafts"),
+        loader: () => fetch("https://assignment-10-server-side-liart.vercel.app/crafts"),
       },
       {
         path: "/add-craft",
@@ -51,7 +51,7 @@ const routers = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/crafts/${params.id}`),
+          fetch(`https://assignment-10-server-side-liart.vercel.app/crafts/${params.id}`),
       },
       {
         path: "/my-craft/:email",
@@ -61,7 +61,7 @@ const routers = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/user-crafts/${params.email}`),
+          fetch(`https://assignment-10-server-side-liart.vercel.app/user-crafts/${params.email}`),
       },
       {
         path: "/update-craft/:id",
@@ -71,7 +71,7 @@ const routers = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/crafts/${params.id}`),
+          fetch(`https://assignment-10-server-side-liart.vercel.app/crafts/${params.id}`),
       },
     ],
   },

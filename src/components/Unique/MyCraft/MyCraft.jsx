@@ -29,7 +29,7 @@ const MyCraft = ({ craft, crafts, setCrafts }) => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`http://localhost:5000/crafts/${id}`, {
+        fetch(`https://assignment-10-server-side-liart.vercel.app/crafts/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

@@ -64,7 +64,7 @@ const AddCraftPage = () => {
 
     craft.photoUrl = form.photoUrl.value;
 
-    fetch("http://localhost:5000/crafts", {
+    fetch("https://assignment-10-server-side-liart.vercel.app/crafts", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(craft),

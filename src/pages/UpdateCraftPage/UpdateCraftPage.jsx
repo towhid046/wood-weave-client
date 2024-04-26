@@ -89,7 +89,7 @@ const UpdateCraftPage = () => {
 
     craft.photoUrl = form.photoUrl.value;
 
-    fetch(`http://localhost:5000/update-craft/${_id}`, {
+    fetch(`https://assignment-10-server-side-liart.vercel.app/update-craft/${_id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(craft),
