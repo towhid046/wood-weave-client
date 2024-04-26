@@ -9,7 +9,7 @@ const AddCraftPage = () => {
     scrollToTop();
   }, []);
 
-  const { user } = useContext(UserContext);
+  const { user, mode } = useContext(UserContext);
   const craftFormData = [
     { id: 1, title: "User_Name", type: "text", defVal: user?.displayName },
     { id: 2, title: "User_Email", type: "email", defVal: user?.email },
@@ -117,7 +117,7 @@ const AddCraftPage = () => {
 
   return (
     <section className="container mx-auto px-2">
-      <div className="bg-[#f4f4f0] px-20 py-12 my-12">
+      <div className={`${mode ? 'bg-[#f4f4f0]' : 'bg-[#1D232A] text-black border rounded-md'} px-20 py-12 my-12`}>
         <SectionHeader
           title="Add New Item"
           description="It is a long established fact that a reader will be distraceted by

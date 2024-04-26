@@ -4,11 +4,10 @@ import { UserContext } from "../../providers/ContextProvider/ContextProvider";
 import swal from "sweetalert";
 import { CiDark } from "react-icons/ci";
 import { MdOutlineLightMode } from "react-icons/md";
-
+import { Tooltip } from "react-tooltip";
 const Navbar = () => {
   const { user, loading, logOutUser, mode, setMode } = useContext(UserContext);
   const navigate = useNavigate();
-
 
   const handleToggle = () => {
     setMode(!mode);
@@ -52,7 +51,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`${mode? 'bg-white' : 'bg-[#1D232A]'} shadow-sm sticky top-0 z-50 `}>
+    <nav
+      className={`${
+        mode ? "bg-white" : "bg-[#1D232A]"
+      } shadow-sm sticky top-0 z-50 `}
+    >
       <div className="navbar container mx-auto px-2">
         <div className="navbar-start">
           <div className="dropdown">
@@ -87,7 +90,12 @@ const Navbar = () => {
           <ul className="gap-4 menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end gap-3">
-          <div onClick={handleToggle} className="text-2xl mr-2 transition ease-in-out swap swap-rotate swap-on">
+          <div
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content={mode ? 'Dark Theme': 'Light Theme'}
+            onClick={handleToggle}
+            className="text-2xl mr-2 transition ease-in-out swap swap-rotate swap-on"
+          >
             {mode ? (
               <button>
                 <CiDark />
@@ -105,10 +113,11 @@ const Navbar = () => {
               {user ? (
                 <div className="flex items-center gap-4">
                   <img
+                    data-tooltip-id="my-tooltip"
+                    data-tooltip-content={user?.displayName}
                     className="w-10 rounded-full h-10 cursor-pointer"
                     src={user?.photoURL}
                     alt="User"
-                    title={user?.displayName}
                   />
                   <button onClick={handleLogOutUser} className="btn btn-error">
                     Log Out
@@ -128,6 +137,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
+      <Tooltip id="my-tooltip" />
     </nav>
   );
 };
