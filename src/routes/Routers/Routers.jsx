@@ -10,6 +10,7 @@ import AllCraftsPage from "../../pages/AllCraftsPage/AllCraftsPage";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import CraftDetailsPage from "../../pages/CraftDetailsPage/CraftDetailsPage";
 import UpdateCraftPage from "../../pages/UpdateCraftPage/UpdateCraftPage";
+import SubCategoryPage from './../../pages/SubCategoryPage/SubCategoryPage';
 
 const routers = createBrowserRouter([
   {
@@ -20,7 +21,8 @@ const routers = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
-        loader: () => fetch("https://assignment-10-server-side-liart.vercel.app/crafts"),
+        loader: () =>
+          fetch("https://assignment-10-server-side-liart.vercel.app/crafts"),
       },
       {
         path: "/register",
@@ -33,7 +35,8 @@ const routers = createBrowserRouter([
       {
         path: "/all-crafts",
         element: <AllCraftsPage />,
-        loader: () => fetch("https://assignment-10-server-side-liart.vercel.app/crafts"),
+        loader: () =>
+          fetch("https://assignment-10-server-side-liart.vercel.app/crafts"),
       },
       {
         path: "/add-craft",
@@ -51,7 +54,9 @@ const routers = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://assignment-10-server-side-liart.vercel.app/crafts/${params.id}`),
+          fetch(
+            `https://assignment-10-server-side-liart.vercel.app/crafts/${params.id}`
+          ),
       },
       {
         path: "/my-craft/:email",
@@ -61,7 +66,9 @@ const routers = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://assignment-10-server-side-liart.vercel.app/user-crafts/${params.email}`),
+          fetch(
+            `https://assignment-10-server-side-liart.vercel.app/user-crafts/${params.email}`
+          ),
       },
       {
         path: "/update-craft/:id",
@@ -71,8 +78,15 @@ const routers = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://assignment-10-server-side-liart.vercel.app/crafts/${params.id}`),
+          fetch(
+            `https://assignment-10-server-side-liart.vercel.app/crafts/${params.id}`
+          ),
       },
+      {
+        path: '/sub-category/:subCategoryName',
+        element: <SubCategoryPage/>,
+        loader: ({params})=> fetch(`https://assignment-10-server-side-liart.vercel.app/craft-subcategories/${params.subCategoryName}`)
+      }
     ],
   },
 ]);
