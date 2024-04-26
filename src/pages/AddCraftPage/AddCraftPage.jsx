@@ -1,95 +1,91 @@
 import swal from "sweetalert";
-import { Link } from "react-router-dom";
-import { BsArrowLeft } from "react-icons/bs";
-// import FormHeader from '../components/shared/FormHeader';
+import SectionHeader from "../../components/Shared/SectionHeader/SectionHeader";
+import {craftFormData2, craftFormData} from "./AddCraftFormData";
 
 const AddCraftPage = () => {
-  const coffeeFormData = [
-    {
-      id: 1,
-      title: "Name",
-    },
-    {
-      id: 2,
-      title: "Chef",
-    },
-    {
-      id: 3,
-      title: "Supplier",
-    },
-    {
-      id: 4,
-      title: "Test",
-    },
-    {
-      id: 5,
-      title: "Category",
-    },
-    {
-      id: 6,
-      title: "Details",
-    },
-  ];
 
-  const handleAddCoffee = (e) => {
+  const handleAddCraft = (e) => {
     e.preventDefault();
-    const newCoffee = {};
     const form = e.target;
+    const craft = {};
 
-    coffeeFormData.forEach((data) => {
-      newCoffee[data.title.toLowerCase()] =
-        form[data.title.toLowerCase()].value;
+    craftFormData.forEach((data) => {
+      craft[data.title.toLowerCase()] = form[data.title.toLowerCase()].value;
     });
-    newCoffee.photoUrl = form.photoUrl.value;
-    console.log(newCoffee)
 
-    // fetch("https://coffee-store-bd-server.vercel.app/all-coffees", {
-    //   method: "POST",
-    //   headers: { "content-type": "application/json" },
-    //   body: JSON.stringify(newCoffee),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data.acknowledged) {
-    //       swal("Added!", "The coffee have been added successfully", "success");
-    //     }
-    //   });
+    craftFormData2.forEach((item) => {
+      craft[item.title.toLowerCase()] = form[item.title.toLowerCase()].value;
+    });
+
+    craft.photoUrl = form.photoUrl.value;
+
+    fetch("http://localhost:5000/crafts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(craft),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          swal("Added!", "The craft have been added successfully", "success");
+        }
+      });
   };
+
+  const craftFormItems = craftFormData.map((data) => (
+    <div className="w-full" key={data.id}>
+      <label className="label">
+        <strong className="label-text">{data.title}</strong>
+      </label>
+      <input
+        type={data.type}
+        name={data.title.toLowerCase()}
+        placeholder={`Enter ${data.title.toLowerCase()}`}
+        className="focus:outline-none input w-full rounded outline-none bg-white"
+        required
+      />
+    </div>
+  ));
+
+  const craftFormItems2 = craftFormData2.map((item) => (
+    <div key={item.id} className="w-full">
+      <label className="label">
+        <strong className="label-text">{item.title}</strong>
+      </label>
+      <select
+        name={item.title.toLowerCase()}
+        required
+        className="select focus:outline-none w-full rounded outline-none bg-white"
+      >
+        <option className="text-gray-400" value={"Not Selected"}>
+          Select {item.title}
+        </option>
+        {item.options.map((option) => (
+          <option value={option} key={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+    </div>
+  ));
+
 
   return (
     <section className="container mx-auto px-2">
-      <Link to={"/"} className="inline-block">
-        <button className="my-4 flex gap-4 items-center text-xl font-bold">
-          <BsArrowLeft />
-          <span>Back to Home</span>
-        </button>
-      </Link>
       <div className="bg-[#f4f4f0] px-20 py-12 my-12">
-        {/* <FormHeader
-          title="Add New Coffee"
+        <SectionHeader
+          title="Add New Item"
           description="It is a long established fact that a reader will be distraceted by
         the readable content of a page when looking at its layout. The point
         of using Lorem Ipsum is that it has a more-or-less normal
         distribution of letters, as opposed to using Content here."
-        /> */}
+        />
 
         <div>
-          <form onSubmit={handleAddCoffee} className="space-y-3 ">
+          <form onSubmit={handleAddCraft} className="space-y-3 ">
             <div className="grid md:grid-cols-2 md:gap-x-6 gap-2 mb-3">
-              {coffeeFormData.map((data) => (
-                <div className="w-full" key={data.id}>
-                  <label className="label">
-                    <strong className="label-text">{data.title}</strong>
-                  </label>
-                  <input
-                    type="text"
-                    name={data.title.toLowerCase()}
-                    placeholder={`Enter Coffee ${data.title.toLowerCase()}`}
-                    className="focus:outline-none input w-full rounded outline-none bg-white"
-                    required
-                  />
-                </div>
-              ))}
+              {craftFormItems}
+              {craftFormItems2}
             </div>
 
             <div className="w-full pb-2">
@@ -106,8 +102,8 @@ const AddCraftPage = () => {
             </div>
 
             <div>
-              <button className="btn w-full rounded-lg text-lg font-semibold bg-[#d2b48c]">
-                Add Coffee
+              <button className="btn w-full rounded-lg text-lg font-bold bg-[#d2b48c] ">
+                Add
               </button>
             </div>
           </form>

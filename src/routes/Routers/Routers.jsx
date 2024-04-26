@@ -18,6 +18,7 @@ const routers = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
+        loader: () => fetch("http://localhost:5000/crafts"),
       },
       {
         path: "/register",
@@ -30,6 +31,7 @@ const routers = createBrowserRouter([
       {
         path: "/all-crafts",
         element: <AllCraftsPage />,
+        loader: () => fetch("http://localhost:5000/crafts"),
       },
       {
         path: "/add-craft",

@@ -1,9 +1,14 @@
-import React from 'react';
+
+import { useLoaderData } from 'react-router-dom';
 
 const AllCraftsPage = () => {
+    const crafts = useLoaderData()
+    
+    console.log(crafts)
+
     return (
         <div>
-            All crafts Page
+            <h2>{crafts.length}</h2>
         </div>
     );
 };
