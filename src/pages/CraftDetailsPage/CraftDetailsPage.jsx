@@ -1,6 +1,13 @@
+import { useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import { scrollToTop } from "../../utilities/scrollToTop";
 
 const CraftDetailsPage = () => {
+
+    useEffect(()=>{
+        scrollToTop()
+    },[])
+
   const craft = useLoaderData();
   const {
     _id,
@@ -11,16 +18,16 @@ const CraftDetailsPage = () => {
     processing_time,
     subcategory_name,
     rating,
-    customization_example,
+    customization,
     stock_status,
     photoUrl,
     price,
-  } = craft;
+  } = craft
   return (
-   <section className="container mx-auto px-4">
+   <section className="container mx-auto px-4 min-h-screen py-12">
      <div className="card card-compact bg-base-100 flex-row">
-      <figure>
-        <img className="w-full" src={photoUrl} alt="Craft Img" />
+      <figure className="roundex-xl">
+        <img className="w-full rounded-2xl" src={photoUrl} alt="Craft Img" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{item_name}</h2>

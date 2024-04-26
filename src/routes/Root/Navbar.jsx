@@ -20,7 +20,7 @@ const Navbar = () => {
             <NavLink to={"/add-craft"}>Add Craft</NavLink>
           </li>
           <li>
-            <NavLink to={"/my-craft"}>My Craft</NavLink>
+            <NavLink to={`/my-craft/${user?.email}`}>My Craft</NavLink>
           </li>
         </>
       )}

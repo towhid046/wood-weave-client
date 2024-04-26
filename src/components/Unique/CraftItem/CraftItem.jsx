@@ -11,7 +11,7 @@ const CraftItem = ({ craft }) => {
     processing_time,
     subcategory_name,
     rating,
-    customization_example,
+    customization,
     stock_status,
     photoUrl,
     price,

@@ -53,12 +53,13 @@ const routers = createBrowserRouter([
           fetch(`http://localhost:5000/crafts/${params.id}`),
       },
       {
-        path: "/my-craft",
+        path: "/my-craft/:email",
         element: (
           <PrivateRoute>
             <MyCraftPage />
           </PrivateRoute>
         ),
+        loader: ({params}) => fetch(`http://localhost:5000/user-crafts/${params.email}`)
       },
     ],
   },
