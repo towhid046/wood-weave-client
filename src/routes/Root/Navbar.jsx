@@ -6,10 +6,9 @@ import { CiDark } from "react-icons/ci";
 import { MdOutlineLightMode } from "react-icons/md";
 
 const Navbar = () => {
-  const { user, loading, logOutUser } = useContext(UserContext);
+  const { user, loading, logOutUser, mode, setMode } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const [mode, setMode] = useState(true);
 
   const handleToggle = () => {
     setMode(!mode);
@@ -53,7 +52,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="shadow-sm sticky top-0 z-50 ">
+    <nav className={`${mode? 'bg-white' : 'bg-[#1D232A]'} shadow-sm sticky top-0 z-50 `}>
       <div className="navbar container mx-auto px-2">
         <div className="navbar-start">
           <div className="dropdown">

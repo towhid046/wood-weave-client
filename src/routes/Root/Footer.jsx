@@ -4,7 +4,11 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FiMapPin } from "react-icons/fi";
 import { LuPhone } from "react-icons/lu";
 import { IoMailOutline } from "react-icons/io5";
+import { useContext } from "react";
+import { UserContext } from "../../providers/ContextProvider/ContextProvider";
 const Footer = () => {
+  const {mode} = useContext(UserContext)
+
   const socialIcons = [
     <FaFacebook />,
     <FaWhatsapp />,
@@ -36,7 +40,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-[#F3CA8F] text-black">
+      <footer className={`  ${mode ? 'bg-[#F3CA8F]' : 'bg-[#1D232A] text-gray-400'} text-black`}>
         <div className="footer container border-b mx-auto px-4 p-10 ">
           <div className="max-w-md">
             <Link
@@ -89,7 +93,7 @@ const Footer = () => {
         </div>
       </footer>
 
-      <footer className="  bg-[#F3CA8F] text-black">
+      <footer className={`  ${mode ? 'bg-[#F3CA8F]' : 'bg-[#1D232A] text-gray-400'} text-black`}>
         <div className=" container md:flex-row flex-col flex justify-between  mx-auto px-4 items-center py-4 text-[13px] gap-3">
           <p>Copyright &copy; 2024 - All right reserved</p>
           <ul className="flex gap-3">
