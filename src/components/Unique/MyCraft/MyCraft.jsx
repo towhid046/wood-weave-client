@@ -60,7 +60,7 @@ const MyCraft = ({ craft, crafts, setCrafts }) => {
             onClick={() => handleDeleteCraft(_id)}
             className="btn btn-error w-1/2"
           >
-            Remove
+            Delete
           </button>
           <Link className="w-1/2" to={`/update-craft/${_id}`}>
             <button className="btn w-full btn-info">

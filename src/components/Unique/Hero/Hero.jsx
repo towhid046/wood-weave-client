@@ -47,7 +47,7 @@ const Hero = () => {
         modules={[Navigation, Autoplay]} 
 
       className="mySwiper ">
-        {slides.map((slide) => (
+        {slides?.map((slide) => (
           <SwiperSlide key={slide.id}>
             <div style={{backgroundImage:`url(${slide.img})`}}
             className="bg-cover bg-center bg-no-repeat lg:h-[70vh] h-[50vh] flex justify-center items-center text-white"
