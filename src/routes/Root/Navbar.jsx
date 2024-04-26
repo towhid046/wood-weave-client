@@ -1,10 +1,24 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../../providers/ContextProvider/ContextProvider";
 import swal from "sweetalert";
+import { CiDark } from "react-icons/ci";
+import { MdOutlineLightMode } from "react-icons/md";
+
 const Navbar = () => {
   const { user, loading, logOutUser } = useContext(UserContext);
   const navigate = useNavigate();
+
+  const [mode, setMode] = useState(true);
+
+  const handleToggle = () => {
+    setMode(!mode);
+  };
+
+  useEffect(() => {
+    const html = document.getElementById("html").attributes;
+    html["data-theme"].value = mode === true ? "light" : "dark";
+  }, [mode]);
 
   const links = (
     <>
@@ -39,7 +53,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="shadow-sm sticky top-0 z-50 bg-white">
+    <nav className="shadow-sm sticky top-0 z-50 ">
       <div className="navbar container mx-auto px-2">
         <div className="navbar-start">
           <div className="dropdown">
@@ -74,6 +88,17 @@ const Navbar = () => {
           <ul className="gap-4 menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end gap-3">
+          <div onClick={handleToggle} className="text-2xl mr-2 transition ease-in-out swap swap-rotate swap-on">
+            {mode ? (
+              <button>
+                <CiDark />
+              </button>
+            ) : (
+              <button>
+                <MdOutlineLightMode />
+              </button>
+            )}
+          </div>
           {loading ? (
             <div className="loading loading-spinner loading-md"></div>
           ) : (
