@@ -37,7 +37,7 @@ const Hero = () => {
   ];
 
   return (
-    <section>
+    <section className="container mx-auto px-4">
       <Swiper 
       navigation={true} 
       autoplay={{
@@ -46,7 +46,7 @@ const Hero = () => {
       }}
         modules={[Navigation, Autoplay]} 
 
-      className="mySwiper max-w-[90%]">
+      className="mySwiper ">
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
             <div style={{backgroundImage:`url(${slide.img})`}}

@@ -2,15 +2,15 @@ import { useLoaderData } from "react-router-dom";
 import SectionHeader from "./../../components/Shared/SectionHeader/SectionHeader";
 import MyCraft from "../../components/Unique/MyCraft/MyCraft";
 import { useEffect, useState } from "react";
-import { scrollToTop } from './../../utilities/scrollToTop';
+import { scrollToTop } from "./../../utilities/scrollToTop";
 
 const MyCraftPage = () => {
   const initialCrafts = useLoaderData();
   const [crafts, setCrafts] = useState(initialCrafts);
 
-  useEffect(()=>{
-    scrollToTop()
-  })
+  useEffect(() => {
+    scrollToTop();
+  });
 
   const handleCustomization = (value) => {
     if (value === "yes") {
@@ -45,11 +45,19 @@ const MyCraftPage = () => {
           <option value="no">No</option>
         </select>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        crafts.length ? <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {crafts?.map((craft) => (
-          <MyCraft key={craft._id} craft={craft} />
+          <MyCraft
+            key={craft._id}
+            craft={craft}
+            crafts={crafts}
+            setCrafts={setCrafts}
+          />
         ))}
-      </div>
+      </div> :
+    <h2 className="text-center py-12 text-gray-400 text-2xl font-semibold">No Item have found</h2> 
+      }
     </section>
   );
 };
