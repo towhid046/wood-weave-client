@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
-const CraftItem = ({ craft }) => {
+const CraftDetailsPage = () => {
+  const craft = useLoaderData();
   const {
     _id,
     user_name,
@@ -17,7 +17,8 @@ const CraftItem = ({ craft }) => {
     price,
   } = craft;
   return (
-    <div className="card card-compact bg-base-100 border">
+   <section className="container mx-auto px-4">
+     <div className="card card-compact bg-base-100 flex-row">
       <figure>
         <img className="w-full" src={photoUrl} alt="Craft Img" />
       </figure>
@@ -28,17 +29,15 @@ const CraftItem = ({ craft }) => {
         <p>Processing Time: {processing_time}</p>
         <p>Price: {price}</p>
         <strong>Stock: {stock_status}</strong>
-        <div className="card-actions justify-end">
-          <Link className="w-full" to={`/craft-details/${_id}`}>
-            <button className="btn w-full btn-primary">View Details</button>
+        <div>
+          <Link className="w-full" to={`/all-crafts`}>
+            <button className="btn w-full btn-primary">View More</button>
           </Link>
         </div>
       </div>
     </div>
+   </section>
   );
 };
 
-CraftItem.propTypes = {
-  craft: PropTypes.object.isRequired,
-};
-export default CraftItem;
+export default CraftDetailsPage;

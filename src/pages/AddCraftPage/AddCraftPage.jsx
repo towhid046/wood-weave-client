@@ -69,7 +69,6 @@ const AddCraftPage = () => {
     </div>
   ));
 
-
   return (
     <section className="container mx-auto px-2">
       <div className="bg-[#f4f4f0] px-20 py-12 my-12">
