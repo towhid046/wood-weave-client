@@ -54,7 +54,7 @@ const Navbar = () => {
     <nav
       className={`${
         mode ? "bg-white" : "bg-[#1D232A]"
-      } shadow-sm sticky top-0 z-50 `}
+      } shadow-sm sticky top-0 z-50 font-lato `}
     >
       <div className="navbar container mx-auto px-2">
         <div className="navbar-start">
@@ -85,7 +85,7 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <Link className=" md:text-3xl text-xl font-bold bg-gradient-to-r from-gray-700 via-[#AB7442] to-[#AB7442] inline-block text-transparent bg-clip-text">
+          <Link className=" md:text-4xl text-2xl font-extrabold bg-gradient-to-r from-gray-700 via-[#AB7442] to-[#d4ad89] inline-block text-transparent bg-clip-text font-teko">
             WoodWeave
           </Link>
         </div>
