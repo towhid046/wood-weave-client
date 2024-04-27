@@ -77,24 +77,27 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="gap-4  menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="gap-4  menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-base"
             >
               {links}
+              <li className="md:hidden flex">
+                <NavLink to={'/register'}>Register</NavLink>
+              </li>
             </ul>
           </div>
-          <Link className="btn btn-ghost md:text-2xl text-xl font-bold">
+          <Link className=" md:text-3xl text-xl font-bold bg-gradient-to-r from-gray-700 via-[#AB7442] to-[#AB7442] inline-block text-transparent bg-clip-text">
             WoodWeave
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="gap-4 menu menu-horizontal px-1">{links}</ul>
+          <ul className="gap-4 menu menu-horizontal px-1 text-base">{links}</ul>
         </div>
         <div className="navbar-end gap-3">
           <div
             data-tooltip-id="my-tooltip"
             data-tooltip-content={mode ? 'Dark Theme': 'Light Theme'}
             onClick={handleToggle}
-            className="text-2xl mr-2 transition ease-in-out swap swap-rotate swap-on"
+            className={`md:relative md:top-0 md:bottom-0 md:bg-none ${user ? 'btn w-12 h-10 rounded-full fixed bottom-5 rigth-4' : 'flex'} text-2xl mr-2 transition ease-in-out swap swap-rotate swap-on`}
           >
             {mode ? (
               <button>
@@ -115,20 +118,20 @@ const Navbar = () => {
                   <img
                     data-tooltip-id="my-tooltip"
                     data-tooltip-content={user?.displayName}
-                    className="w-10 rounded-full h-10 cursor-pointer"
+                    className="md:w-11 rounded-full md:h-11 w-9 h-9 cursor-pointer"
                     src={user?.photoURL}
                     alt="User"
                   />
-                  <button onClick={handleLogOutUser} className="btn btn-error">
+                  <button onClick={handleLogOutUser} className="btn bg-black text-gray-300 hover:bg-[#4C4C4C] ">
                     Log Out
                   </button>
                 </div>
               ) : (
                 <>
-                  <Link to={"register"} className="btn btn-primary">
+                  <Link to={"register"} className={`btn bg-[#AB7442] text-white  border-none hover:bg-[#4C4C4C] md:flex hidden ${mode ? '' : 'bg-gray-400'} `}>
                     Register
                   </Link>
-                  <Link to={"login"} className="btn btn-info">
+                  <Link to={"login"} className={`btn text-white  border-none hover:bg-gray-600 ${mode ? 'bg-gray-800' : 'bg-[#AB7442]'} `}>
                     Login
                   </Link>
                 </>
