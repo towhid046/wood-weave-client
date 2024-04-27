@@ -7,7 +7,7 @@ import { IoMailOutline } from "react-icons/io5";
 import { useContext } from "react";
 import { UserContext } from "../../providers/ContextProvider/ContextProvider";
 const Footer = () => {
-  const {mode} = useContext(UserContext)
+  const { mode } = useContext(UserContext);
 
   const socialIcons = [
     <FaFacebook />,
@@ -26,10 +26,10 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { name: "Home", url: "/" },
-    { name: "Blog", url: "/news" },
-    { name: "Contact", url: "/contact" },
-    { name: "FAQ", url: "/news" },
+    { name: "Crafts", url: "explore-now" },
+    { name: "Sub-categories", url: "sub-categories" },
+    { name: "Contact", url: "contact" },
+    { name: "FAQ", url: "faq" },
   ];
   const services = [
     { name: "Log In", url: "/login" },
@@ -40,34 +40,27 @@ const Footer = () => {
 
   return (
     <>
-      <footer className={`  ${mode ? 'bg-[#F3CA8F]' : 'bg-[#1D232A] text-gray-400'} text-black`}>
+      <footer className="bg-base-200">
         <div className="footer container border-b mx-auto px-4 p-10 ">
           <div className="max-w-md">
-            <Link
-              to="/"
-              className="font-bold md:text-3xl text-2xl"
-            >
+            <Link className=" md:text-4xl text-2xl font-extrabold bg-gradient-to-r from-gray-700 via-[#AB7442] to-[#d4ad89] inline-block text-transparent bg-clip-text font-teko">
               WoodWeave
             </Link>
             <p>
-              Woodweave is your premier destination for luxurious estate living
-              nestled amidst nature's embrace.{" "}
+            Experience the beauty of artisanal wood and jute crafts at Woodweave. Explore our curated collection of finely crafted products.{" "}
             </p>
-            <ul className="mt-4 flex gap-3 text-xl items-center">
-              {socialIcons.map((icon, index) => (
-                <li className="cursor-pointer" key={index}>
-                  {icon}
-                </li>
-              ))}
-            </ul>
+            <ul className="flex gap-3 mt-4">
+            <li className="link link-hover">Terms of use</li> |
+            <li className="link link-hover">Privacy policy</li>
+          </ul>
           </div>
 
           <nav>
-            <h6 className="footer-title text-lg">Quick Links</h6>
+            <h6 className="footer-title text-lg">Home Links</h6>
             {quickLinks.map((link, index) => (
-              <Link to={link.url} key={index} className="link link-hover">
+              <a href={`#${link.url}`} key={index} className="link link-hover">
                 {link.name}
-              </Link>
+              </a>
             ))}
           </nav>
 
@@ -80,26 +73,29 @@ const Footer = () => {
             ))}
           </nav>
 
-          {/* contact */}
-          <ul>
-            <h6 className="footer-title text-lg">Contact</h6>
-            {contacts.map((contact, index) => (
-              <li key={index} className="flex gap-3">
-                <span className="text-lg">{contact.icon}</span>
-                <span>{contact.text}</span>
-              </li>
-            ))}
-          </ul>
+          {/* Socail links */}
+          <nav>
+            <h6 className="footer-title text-lg">Soclia Links</h6>
+            <p>
+              Get Connected with our <br /> Social Platfroms
+            </p>
+            <ul className="mt-2 flex gap-2 text-xl items-center">
+              {socialIcons.map((icon, index) => (
+                <li
+                  className="cursor-pointer btn btn-circle text-xl bg-gray-700 text-gray-50 hover:bg-[#AB7442]"
+                  key={index}
+                >
+                  {icon}
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </footer>
 
-      <footer className={`  ${mode ? 'bg-[#F3CA8F]' : 'bg-[#1D232A] text-gray-400'} text-black`}>
-        <div className=" container md:flex-row flex-col flex justify-between  mx-auto px-4 items-center py-4 text-[13px] gap-3">
+      <footer className="bg-base-200">
+        <div className=" container md:flex-row flex-col flex justify-center  mx-auto px-4 items-center py-2 text-[13px] gap-3">
           <p>Copyright &copy; 2024 - All right reserved</p>
-          <ul className="flex gap-3">
-            <li className="link link-hover">Terms of use</li> |
-            <li className="link link-hover">Privacy policy</li>
-          </ul>
         </div>
       </footer>
     </>

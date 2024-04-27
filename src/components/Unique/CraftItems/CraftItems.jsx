@@ -7,8 +7,8 @@ const CraftItems = () => {
   return (
     <section id="explore-now" className="container mx-auto px-4 py-10">
       <SectionHeader
-        title={`Explore your favorit Crafts`}
-        description="This is the description of the explore your favorit craft you can show detail of your craft by clicking on the view details button but to view details you must have to login otherwise you won't be able to access view detials page"
+        title={`Discover Your Favorite Craft Items`}
+        description="Explore our curated collection of jute and wood crafts, each showcasing natural beauty and craftsmanship. From rustic jute decor to elegant wooden creations, discover intricate details by clicking 'View Details'. Remember, login for the full experience. Begin your journey into jute and wood treasures today!"
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {crafts &&

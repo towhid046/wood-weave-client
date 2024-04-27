@@ -1,45 +1,14 @@
 import SectionHeader from "./../../Shared/SectionHeader/SectionHeader";
 import faqImg from "../../../assets/images/faq.png";
-const FAQSection = () => {
-  const faqs = [
-    {
-      id: 1,
-      title: " Hockey Training",
-      description: ` Immerse yourself in our comprehensive hockey training programs.
-      Our skilled coaches and state-of-the-art facilities are
-      dedicated to refining your skills and taking your game to the
-      next level.`,
-    },
-    {
-      id: 2,
-      title: " Hockey Training",
-      description: ` Immerse yourself in our comprehensive hockey training programs.
-      Our skilled coaches and state-of-the-art facilities are
-      dedicated to refining your skills and taking your game to the
-      next level.`,
-    },
-    {
-      id: 3,
-      title: " Hockey Training",
-      description: ` Immerse yourself in our comprehensive hockey training programs.
-      Our skilled coaches and state-of-the-art facilities are
-      dedicated to refining your skills and taking your game to the
-      next level.`,
-    },
-    {
-      id: 4,
-      title: " Hockey Training",
-      description: ` Immerse yourself in our comprehensive hockey training programs.
-      Our skilled coaches and state-of-the-art facilities are
-      dedicated to refining your skills and taking your game to the
-      next level.`,
-    },
-    
-  ];
+import faqs from "./faqData";
 
+const FAQSection = () => {
   return (
-    <section className="container mx-auto px-4 py-10">
-      <SectionHeader />
+    <section id="faq" className="container mx-auto px-4 py-10">
+      <SectionHeader
+        title="Get Answers to Your Questions"
+        description="Explore our FAQ section to find quick answers to common questions about our jute and wooden crafts. From product details to shipping information, we've got you covered. Save time and hassle by browsing through our FAQs to get the information you need, all in one place."
+      />
       <div className="flex justify-between flex-col lg:flex-row items-center gap-10">
         <div>
           <img src={faqImg} alt="Faq img" />
@@ -48,12 +17,12 @@ const FAQSection = () => {
           {faqs.map((faq) => (
             <div key={faq.id} className="collapse collapse-arrow shadow-md">
               <input type="radio" name="my-accordion-2" />
-              <div className="collapse-title text-xl font-bold text-custom-black ">
-                {faq.title}
+              <div className="collapse-title text-md font-bold text-custom-black ">
+                {faq.question}
               </div>
               <div className="collapse-content">
                 <p className="text-custom-gray text-base font-normal">
-                  {faq.description}
+                  {faq.answer}
                 </p>
               </div>
             </div>
