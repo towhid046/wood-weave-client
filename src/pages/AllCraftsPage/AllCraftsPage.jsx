@@ -28,9 +28,9 @@ const AllCraftsPage = () => {
   ));
 
   return (
-    <section className="container mx-auto px-4 min-h-screen">
+    <section className="container mx-auto px-4 min-h-screen mb-20">
       <SectionHeader
-      title="All Crafts Collection"
+      title={`All Crafts Collection : ${crafts?.length}`}
       description="Explore All diverse crafts selection. Each item offers unique details and craftsmanship. Click 'View Details' to learn more about each craft"
       />
       <div className=" flex justify-center mx-auto ">

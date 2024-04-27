@@ -33,9 +33,9 @@ const MyCraftPage = () => {
   };
 
   return (
-    <section className="min-h-screen container mx-auto px-4 py-10">
+    <section className="min-h-screen container mx-auto px-4 py-10  mb-20">
       <SectionHeader 
-      title="Your Added Crafts"
+      title={`Your Added Crafts : ${crafts?.length}`}
       description={`Hey ${user.displayName}, In this page you can see all the crafts you have added and you can delete and update the craft you want. You also can filter the crafts by customization.`}
       />
       <div className="text-center mb-12">

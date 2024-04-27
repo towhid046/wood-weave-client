@@ -11,14 +11,19 @@ const SubCategoryPage = () => {
   const crafts = useLoaderData();
 
   return (
-    <section className="min-h-screen container mx-auto px-4 py-10">
-      <SectionHeader />
+    <section className="min-h-screen container mx-auto px-4 mb-20">
       {crafts.length ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {crafts.map((craft) => (
-            <CraftItem key={craft._id} craft={craft} />
-          ))}
-        </div>
+        <>
+          <SectionHeader
+            title={`${crafts[0]?.subcategory_name} Crafts`}
+            description={`Here you can see all the crafts regarding of the ${crafts[0]?.subcategory_name} sub category.`}
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {crafts.map((craft) => (
+              <CraftItem key={craft._id} craft={craft} />
+            ))}
+          </div>
+        </>
       ) : (
         <h2 className="py-12 text-2xl font-semibold text-gray-400 px-4 text-center">
           No Craft have found in this sub-category

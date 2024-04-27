@@ -12,7 +12,7 @@ const CraftItems = () => {
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {crafts &&
-          crafts
+          [...crafts]
             .slice(0, 6)
             .map((craft) => <CraftItem key={craft._id} craft={craft} />)}
       </div>

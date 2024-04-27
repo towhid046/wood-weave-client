@@ -27,14 +27,14 @@ const AddCraftPage = () => {
         "Wooden Home Decor",
         "Wooden Utensils and Kitchenware",
         "Jute Home Decor",
-        "Jute Kitchenware & utensils",
-        "Jute and wooden jewellery",
+        "Jute Kitchenware & Utensils",
+        "Jute and Wooden Jewellery",
       ],
     },
     {
       id: 200,
       title: "Rating",
-      options: [1, 2, 3, 4, 5],
+      options: [1, 2, 3, 3.5, 4, 4.5, 5],
     },
     {
       id: 300,
@@ -84,6 +84,7 @@ const AddCraftPage = () => {
       .then((data) => {
         if (data.acknowledged) {
           swal("Added!", "The craft have been added successfully", "success");
+          form.reset()
         }
       });
   };

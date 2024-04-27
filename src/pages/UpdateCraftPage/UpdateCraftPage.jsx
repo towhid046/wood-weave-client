@@ -6,10 +6,10 @@ import { scrollToTop } from "./../../utilities/scrollToTop";
 import { useLoaderData, useNavigate } from "react-router-dom";
 
 const UpdateCraftPage = () => {
-  const {mode} = useContext(UserContext)
+  const { mode } = useContext(UserContext);
   const craft = useLoaderData();
   const { user } = useContext(UserContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   useEffect(() => {
     scrollToTop();
   }, []);
@@ -50,15 +50,15 @@ const UpdateCraftPage = () => {
         "Wooden Home Decor",
         "Wooden Utensils and Kitchenware",
         "Jute Home Decor",
-        "Jute Kitchenware & utensils",
-        "Jute and wooden jewellery",
+        "Jute Kitchenware & Utensils",
+        "Jute and Wooden Jewellery",
       ],
       defVal: subcategory_name,
     },
     {
       id: 200,
       title: "Rating",
-      options: ["1", "2", "3", "4", "5"],
+      options: ["1", "2", "3", "3.5", "4", "4.5", "5"],
       defVal: rating,
     },
     {
@@ -90,17 +90,24 @@ const UpdateCraftPage = () => {
 
     craft.photoUrl = form.photoUrl.value;
 
-    fetch(`https://assignment-10-server-side-liart.vercel.app/update-craft/${_id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(craft),
-    })
+    fetch(
+      `https://assignment-10-server-side-liart.vercel.app/update-craft/${_id}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(craft),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
         if (data.acknowledged) {
-          swal("Updated!", "The craft have been update successfully", "success");
-          navigate(`/my-craft/${user?.email}`)
+          swal(
+            "Updated!",
+            "The craft have been update successfully",
+            "success"
+          );
+          navigate(`/my-craft/${user?.email}`);
         }
       });
   };
@@ -145,14 +152,16 @@ const UpdateCraftPage = () => {
 
   return (
     <section className="container mx-auto px-2 mb-20">
-       <SectionHeader
-          title="Update the Craft"
-          description="Craft Update: Admins refine their creations, maintaining creative control. Each admin can only update their added crafts, ensuring ownership and relevance"
-        />
+      <SectionHeader
+        title="Update the Craft"
+        description="Craft Update: Admins refine their creations, maintaining creative control. Each admin can only update their added crafts, ensuring ownership and relevance"
+      />
 
       <div
         className={`${
-          mode ? "bg-base-200" : " border border-gray-700 text-black rounded-none"
+          mode
+            ? "bg-base-200"
+            : " border border-gray-700 text-black rounded-none"
         } lg:px-20 md:px-12 px-4 py-12 my-12`}
       >
         <div>
