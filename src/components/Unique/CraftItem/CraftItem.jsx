@@ -53,7 +53,7 @@ const CraftItem = ({ craft }) => {
           <p>
             <strong className="">Rating:</strong> {rating}
           </p>
-          <p>Processing Time: {processing_time} Days</p>
+          <p>Processing Time: {processing_time}</p>
         </div>
 
         <Link className="w-full" to={`/craft-details/${_id}`}>

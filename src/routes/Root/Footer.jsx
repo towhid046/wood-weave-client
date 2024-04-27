@@ -31,11 +31,11 @@ const Footer = () => {
     { name: "Contact", url: "contact" },
     { name: "FAQ", url: "faq" },
   ];
-  const services = [
+  const pageLinks = [
     { name: "Log In", url: "/login" },
     { name: "Register", url: "/register" },
-    { name: "UserProfile", url: "/user-profile" },
-    { name: "Saved Items", url: "/saved-properties" },
+    { name: "All Crafts", url: "/all-crafts" },
+    { name: "Add Craft", url: "/add-craft" },
   ];
 
   return (
@@ -64,9 +64,10 @@ const Footer = () => {
             ))}
           </nav>
 
+{/* Page Links */}
           <nav>
-            <h6 className="footer-title text-lg">Services</h6>
-            {services.map((link, index) => (
+            <h6 className="footer-title text-lg">Page Links</h6>
+            {pageLinks.map((link, index) => (
               <Link to={link.url} key={index} className="link link-hover">
                 {link.name}
               </Link>
@@ -82,7 +83,7 @@ const Footer = () => {
             <ul className="mt-2 flex gap-2 text-xl items-center">
               {socialIcons.map((icon, index) => (
                 <li
-                  className="cursor-pointer btn btn-circle text-xl bg-gray-700 text-gray-50 hover:bg-[#AB7442]"
+                  className="cursor-pointer btn btn-circle text-lg  btn-sm bg-gray-700 text-gray-50 hover:bg-[#AB7442]"
                   key={index}
                 >
                   {icon}

@@ -16,7 +16,6 @@ const AddCraftPage = () => {
     { id: 3, title: "Item_Name", type: "text" },
     { id: 4, title: "Price", type: "number" },
     { id: 5, title: "Short_Description", type: "text" },
-    { id: 6, title: "Processing_Time", type: "text" },
   ];
 
   const craftFormData2 = [
@@ -46,6 +45,18 @@ const AddCraftPage = () => {
       id: 400,
       title: "Stock_Status",
       options: ["In stock", "Made to Order"],
+    },
+    {
+      id: 500,
+      title: "Processing_Time",
+      options: [
+        "1 - 2 Business Days ",
+        "3 - 5 Business Days ",
+        "6 - 8 Business Days ",
+        "9 - 11 Business Days ",
+        "12 - 14 Business Days ",
+        "Above 14 Business Days"
+      ],
     },
   ];
 
@@ -87,7 +98,7 @@ const AddCraftPage = () => {
         type={data.type}
         name={data.title.toLowerCase()}
         placeholder={`Enter ${data.title.toLowerCase()}`}
-        className="focus:outline-none input w-full rounded outline-none bg-white"
+        className="focus:outline-none input w-full rounded-none outline-none bg-white"
         required
       />
     </div>
@@ -101,7 +112,7 @@ const AddCraftPage = () => {
       <select
         name={item.title.toLowerCase()}
         required
-        className="select focus:outline-none w-full rounded outline-none bg-white"
+        className="select focus:outline-none w-full rounded-none outline-none bg-white"
       >
         <option className="text-gray-400" value={"Not Selected"}>
           Select {item.title}
@@ -116,16 +127,19 @@ const AddCraftPage = () => {
   ));
 
   return (
-    <section className="container mx-auto px-2">
-      <div className={`${mode ? 'bg-[#f4f4f0]' : 'bg-[#1D232A] text-black border rounded-md'} px-20 py-12 my-12`}>
-        <SectionHeader
-          title="Add New Item"
-          description="It is a long established fact that a reader will be distraceted by
+    <section className="container mx-auto px-2 mb-32">
+      <SectionHeader
+        title="Add New Craft"
+        description="It is a long established fact that a reader will be distraceted by
         the readable content of a page when looking at its layout. The point
         of using Lorem Ipsum is that it has a more-or-less normal
         distribution of letters, as opposed to using Content here."
-        />
-
+      />
+      <div
+        className={`${
+          mode ? "bg-base-200" : " border border-gray-700 text-black rounded-none"
+        } px-20 py-12 my-12`}
+      >
         <div>
           <form onSubmit={handleAddCraft} className="space-y-3 ">
             <div className="grid md:grid-cols-2 md:gap-x-6 gap-2 mb-3">
@@ -141,14 +155,14 @@ const AddCraftPage = () => {
                 type="text"
                 name="photoUrl"
                 placeholder="Enter photo URL"
-                className="focus:outline-none input w-full rounded outline-none bg-white"
+                className="focus:outline-none input w-full rounded-none outline-none bg-white"
                 required
               />
             </div>
 
             <div>
-              <button className="btn w-full rounded-lg text-lg font-bold bg-[#d2b48c] ">
-                Add
+              <button className="btn w-full rounded-none text-lg font-bold bg-[#AB7442] hover:bg-gray-700 text-gray-100">
+                Add Craft
               </button>
             </div>
           </form>
