@@ -130,15 +130,12 @@ const AddCraftPage = () => {
     <section className="container mx-auto px-2 mb-32">
       <SectionHeader
         title="Add New Craft"
-        description="It is a long established fact that a reader will be distraceted by
-        the readable content of a page when looking at its layout. The point
-        of using Lorem Ipsum is that it has a more-or-less normal
-        distribution of letters, as opposed to using Content here."
+        description=" Add New Craft Section and Unleash Your Creative Vision. Dive deep into a world of endless possibilities as you bring your ideas to life. With a user-friendly interface designed for efficiency, crafting your masterpiece has never been easier."
       />
       <div
         className={`${
           mode ? "bg-base-200" : " border border-gray-700 text-black rounded-none"
-        } px-20 py-12 my-12`}
+        } lg:px-20 md:px-12 px-4 py-12 my-12`}
       >
         <div>
           <form onSubmit={handleAddCraft} className="space-y-3 ">

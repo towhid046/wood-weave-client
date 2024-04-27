@@ -15,7 +15,7 @@ const FAQSection = () => {
         </div>
         <div className="flex-1">
           {faqs.map((faq) => (
-            <div key={faq.id} className="collapse collapse-arrow shadow-md">
+            <div key={faq.id} className="collapse collapse-arrow shadow-md rounded-none">
               <input type="radio" name="my-accordion-2" />
               <div className="collapse-title text-md font-bold text-custom-black ">
                 {faq.question}

@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../../providers/ContextProvider/ContextProvider";
-import { CiStar } from "react-icons/ci";
 import { BiDollar } from "react-icons/bi";
 const CraftItem = ({ craft }) => {
   const { mode } = useContext(UserContext);

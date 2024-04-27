@@ -43,16 +43,18 @@ const Footer = () => {
       <footer className="bg-base-200">
         <div className="footer container border-b mx-auto px-4 p-10 ">
           <div className="max-w-md">
-            <Link className=" md:text-4xl text-2xl font-extrabold bg-gradient-to-r from-gray-700 via-[#AB7442] to-[#d4ad89] inline-block text-transparent bg-clip-text font-teko">
+            <Link className=" md:text-4xl text-3xl font-extrabold bg-gradient-to-r from-gray-700 via-[#AB7442] to-[#d4ad89] inline-block text-transparent bg-clip-text font-teko">
               WoodWeave
             </Link>
             <p>
-            Experience the beauty of artisanal wood and jute crafts at Woodweave. Explore our curated collection of finely crafted products.{" "}
+              Experience the beauty of artisanal wood and jute crafts at
+              Woodweave. Explore our curated collection of finely crafted
+              products.{" "}
             </p>
             <ul className="flex gap-3 mt-4">
-            <li className="link link-hover">Terms of use</li> |
-            <li className="link link-hover">Privacy policy</li>
-          </ul>
+              <li className="link link-hover">Terms of use</li> |
+              <li className="link link-hover">Privacy policy</li>
+            </ul>
           </div>
 
           <nav>
@@ -64,7 +66,7 @@ const Footer = () => {
             ))}
           </nav>
 
-{/* Page Links */}
+          {/* Page Links */}
           <nav>
             <h6 className="footer-title text-lg">Page Links</h6>
             {pageLinks.map((link, index) => (

@@ -6,6 +6,7 @@ import { scrollToTop } from "./../../utilities/scrollToTop";
 import { useLoaderData, useNavigate } from "react-router-dom";
 
 const UpdateCraftPage = () => {
+  const {mode} = useContext(UserContext)
   const craft = useLoaderData();
   const { user } = useContext(UserContext);
   const navigate = useNavigate()
@@ -114,7 +115,7 @@ const UpdateCraftPage = () => {
         type={data.type}
         name={data.title.toLowerCase()}
         placeholder={`Enter ${data.title.toLowerCase()}`}
-        className="focus:outline-none input w-full rounded outline-none bg-white"
+        className="focus:outline-none input w-full rounded-none outline-none bg-white"
         required
       />
     </div>
@@ -128,7 +129,7 @@ const UpdateCraftPage = () => {
       <select
         name={item.title.toLowerCase()}
         required
-        className="select focus:outline-none w-full rounded outline-none bg-white"
+        className="select focus:outline-none w-full rounded-none outline-none bg-white"
       >
         <option defaultValue={item.defVal}>{item.defVal}</option>
         {item.options
@@ -143,16 +144,17 @@ const UpdateCraftPage = () => {
   ));
 
   return (
-    <section className="container mx-auto px-2">
-      <div className="bg-[#f4f4f0] px-20 py-12 my-12">
-        <SectionHeader
+    <section className="container mx-auto px-2 mb-20">
+       <SectionHeader
           title="Update the Craft"
-          description="It is a long established fact that a reader will be distraceted by
-        the readable content of a page when looking at its layout. The point
-        of using Lorem Ipsum is that it has a more-or-less normal
-        distribution of letters, as opposed to using Content here."
+          description="Craft Update: Admins refine their creations, maintaining creative control. Each admin can only update their added crafts, ensuring ownership and relevance"
         />
 
+      <div
+        className={`${
+          mode ? "bg-base-200" : " border border-gray-700 text-black rounded-none"
+        } lg:px-20 md:px-12 px-4 py-12 my-12`}
+      >
         <div>
           <form onSubmit={handleUpdateCraft} className="space-y-3 ">
             <div className="grid md:grid-cols-2 md:gap-x-6 gap-2 mb-3">
@@ -169,13 +171,13 @@ const UpdateCraftPage = () => {
                 name="photoUrl"
                 defaultValue={photoUrl}
                 placeholder="Enter photo URL"
-                className="focus:outline-none input w-full rounded outline-none bg-white"
+                className="focus:outline-none input w-full rounded-none outline-none bg-white"
                 required
               />
             </div>
 
             <div>
-              <button className="btn w-full rounded-lg text-lg font-bold bg-[#d2b48c] ">
+              <button className="btn w-full rounded-none text-lg font-bold bg-[#AB7442] hover:bg-gray-700 text-gray-100">
                 Update
               </button>
             </div>

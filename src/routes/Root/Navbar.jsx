@@ -85,7 +85,7 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <Link className=" md:text-4xl text-2xl font-extrabold bg-gradient-to-r from-gray-700 via-[#AB7442] to-[#d4ad89] inline-block text-transparent bg-clip-text font-teko">
+          <Link className=" md:text-4xl text-3xl font-extrabold bg-gradient-to-r from-gray-700 via-[#AB7442] to-[#d4ad89] inline-block text-transparent bg-clip-text font-teko">
             WoodWeave
           </Link>
         </div>
@@ -122,16 +122,16 @@ const Navbar = () => {
                     src={user?.photoURL}
                     alt="User"
                   />
-                  <button onClick={handleLogOutUser} className="btn bg-black text-gray-300 hover:bg-[#4C4C4C] ">
+                  <button onClick={handleLogOutUser} className="btn bg-black rounded-none text-gray-300 hover:bg-[#4C4C4C] ">
                     Log Out
                   </button>
                 </div>
               ) : (
                 <>
-                  <Link to={"register"} className={`btn bg-[#AB7442] text-white  border-none hover:bg-[#4C4C4C] md:flex hidden ${mode ? '' : 'bg-gray-400'} `}>
+                  <Link to={"/register"} className={`btn rounded-none bg-[#AB7442] text-white  border-none hover:bg-[#4C4C4C] md:flex hidden ${mode ? '' : 'bg-gray-400'} `}>
                     Register
                   </Link>
-                  <Link to={"login"} className={`btn text-white  border-none hover:bg-gray-600 ${mode ? 'bg-gray-800' : 'bg-[#AB7442]'} `}>
+                  <Link to={"login"} className={`btn text-white  border-none rounded-none hover:bg-gray-600 ${mode ? 'bg-gray-800' : 'bg-[#AB7442]'} `}>
                     Login
                   </Link>
                 </>

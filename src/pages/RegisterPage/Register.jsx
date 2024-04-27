@@ -6,7 +6,7 @@ import { scrollToTop } from "./../../utilities/scrollToTop";
 import swal from "sweetalert";
 
 const Register = () => {
-  const { createUser, updateUserProfile, setLoading } = useContext(UserContext);
+  const { createUser, updateUserProfile, setLoading, mode } = useContext(UserContext);
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [passwordError, setPasswordError] = useState(null);
 
@@ -90,14 +90,14 @@ const Register = () => {
 
   return (
     <div>
-      <div className="hero md:min-h-screen container-fluid pt-12 pb-8">
+      <div className="hero md:min-h-screen container-fluid pt-12 mb-16">
         <div className="w-full px-4">
-          <div className="max-w-xl rounded-xl bg-base-100 border mx-auto md:p-12 py-8 px-6">
+          <div className={`max-w-xl rounded-none bg-base-100 border mx-auto md:p-12 py-8 px-6 ${mode ? 'border-gray-300' : 'border-gray-700'}`}>
             <h1 className="text-2xl font-bold text-center mb-8">
               Register your account
             </h1>
             <hr />
-            <form onSubmit={handelRegisterForm} className="mt-5">
+            <form onSubmit={handelRegisterForm} className="mt-5 text-black">
               <div>
                 <label className="label">
                   <strong className="label-text">Your Name</strong>
@@ -106,7 +106,7 @@ const Register = () => {
                   type="text"
                   name="name"
                   placeholder="Enter your name"
-                  className="focus:outline-none input w-full rounded-lg outline-none bg-[#f3f3f3]"
+                  className="focus:outline-none input w-full rounded-none outline-none bg-[#f3f3f3]"
                   required
                 />
               </div>
@@ -120,7 +120,7 @@ const Register = () => {
                   type="email"
                   name="email"
                   placeholder="Enter your email"
-                  className="focus:outline-none input w-full rounded-lg outline-none bg-[#f3f3f3]"
+                  className="focus:outline-none input w-full rounded-none outline-none bg-[#f3f3f3]"
                   required
                 />
               </div>
@@ -132,7 +132,7 @@ const Register = () => {
                   type="text"
                   name="imgurl"
                   placeholder="Enter your photo url"
-                  className="focus:outline-none input w-full rounded-lg outline-none bg-[#f3f3f3]"
+                  className="focus:outline-none input w-full rounded-none outline-none bg-[#f3f3f3]"
                   required
                 />
               </div>
@@ -145,7 +145,7 @@ const Register = () => {
                   type={isShowPassword ? "text" : "password"}
                   name="password"
                   placeholder="Password"
-                  className="focus:outline-none w-full input rounded-lg outline-none bg-[#f3f3f3]"
+                  className="focus:outline-none w-full input rounded-none outline-none bg-[#f3f3f3]"
                   required
                 />
 
@@ -173,7 +173,7 @@ const Register = () => {
                 <input
                   type="checkbox"
                   id="terms-contition"
-                  className="checkbox checkbox-sm rounded"
+                  className="checkbox checkbox-sm rounded-none"
                   required
                 />
                 <label htmlFor="terms-contition" className="cursor-pointer">
@@ -181,7 +181,7 @@ const Register = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn w-full rounded-lg hover:bg-black text-white bg-[#2B3440]">
+                <button className="btn w-full rounded-none font-bold bg-[#AB7442] hover:bg-gray-700 text-gray-100">
                   Register
                 </button>
               </div>
@@ -190,7 +190,7 @@ const Register = () => {
               Already have an account?{" "}
               <Link
                 to={"/login"}
-                className=" cursor-pointer text-red-400 font-semibold"
+                className=" cursor-pointer text-[#AB7442] font-semibold"
               >
                 Login
               </Link>

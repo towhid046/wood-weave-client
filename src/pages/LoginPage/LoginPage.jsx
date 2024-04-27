@@ -6,9 +6,10 @@ import { UserContext } from "../../providers/ContextProvider/ContextProvider";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import { scrollToTop } from './../../utilities/scrollToTop';
 import swal from "sweetalert";
+import {  } from './../../providers/ContextProvider/ContextProvider';
 
 const Login = () => {
-  const { loginUser, logInWithGoogle, logInWithGithub } =
+  const { loginUser, logInWithGoogle, logInWithGithub, mode } =
     useContext(UserContext);
   const [isShowPassword, setIsShowPassword] = useState(false);
 
@@ -73,17 +74,14 @@ const Login = () => {
 
   return (
     <div>
-    {/* <Helmet>
-        <title>Green Villa | Login</title>
-      </Helmet> */}
       <div className="hero md:min-h-screen container-fluid pt-12 pb-8">
         <div className="w-full px-4">
-          <div className="max-w-xl border rounded-xl bg-base-100 mx-auto md:p-12 py-8 px-6">
+          <div className={`max-w-xl border rounded-none bg-base-100 mx-auto md:p-12 py-8 px-6 ${mode ? 'border-gray-300': 'border-gray-700'}`}>
             <h1 className="text-2xl font-bold text-center mb-8">
               Login your account
             </h1>
             <hr />
-            <form onSubmit={handelLoginForm} className="mt-5">
+            <form onSubmit={handelLoginForm} className="mt-5 text-black">
               <div>
                 <label className="label">
                   <strong className="label-text">Email address</strong>
@@ -92,7 +90,7 @@ const Login = () => {
                   type="email"
                   name="email"
                   placeholder="Enter your email"
-                  className="focus:outline-none input w-full rounded-lg outline-none bg-[#f3f3f3]"
+                  className="focus:outline-none input w-full rounded-none outline-none bg-[#f3f3f3]"
                   required
                 />
               </div>
@@ -104,7 +102,7 @@ const Login = () => {
                   type={isShowPassword ? "text" : "password"}
                   name="password"
                   placeholder="Password"
-                  className="focus:outline-none w-full input rounded-lg outline-none bg-[#f3f3f3]"
+                  className="focus:outline-none w-full input rounded-none outline-none bg-[#f3f3f3]"
                   required
                 />
 
@@ -128,7 +126,7 @@ const Login = () => {
                 </div>
               </div>
               <div className="form-control my-5">
-                <button className="btn w-full rounded-lg hover:bg-black text-white bg-[#2B3440]">
+                <button className="btn w-full rounded-none font-bold bg-[#AB7442] hover:bg-gray-700 text-gray-100">
                   Log in
                 </button>
               </div>
@@ -141,14 +139,14 @@ const Login = () => {
               <div className="flex justify-center gap-5">
                 <button
                   onClick={handelLogInWithGoogle}
-                  className="btn flex items-center gap-2"
+                  className="btn flex items-center gap-2 rounded-none"
                 >
                   <img className="w-8" src={googleLogo} alt="Google" />
                   <span> Google</span>
                 </button>
                 <button
                   onClick={handelLogInWithGithub}
-                  className="btn flex items-center gap-2"
+                  className="btn flex items-center gap-2 rounded-none"
                 >
                   <img className="w-8" src={githubLogo} alt="Github" />
                   <span>GitHub</span>
@@ -159,7 +157,7 @@ const Login = () => {
               Don't have an account?{" "}
               <Link
                 to={"/register"}
-                className=" cursor-pointer text-red-400 font-semibold"
+                className=" cursor-pointer text-[#AB7442] font-semibold"
               >
                 Regester
               </Link>

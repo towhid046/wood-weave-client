@@ -12,10 +12,10 @@ const CraftCategory = ({ category }) => {
     <Link
       data-tooltip-id="my-tooltip2"
       data-tooltip-content={`Click to see ${category_name}`}
-      className="bg-base-100 shadow-lg rounded-lg  cursor-pointer flex flex-col justify-between"
+      className="bg-base-100 shadow-lg rounded-none  cursor-pointer flex flex-col justify-between mb-10"
       to={`/sub-category/${category_name}`}
     >
-      <figure className="overflow-hidden rounded-lg">
+      <figure className="overflow-hidden ">
         <img className="w-full h-64" src={image} alt="Craft Img" />
       </figure>
       <div className="p-4">
@@ -28,11 +28,11 @@ const CraftCategory = ({ category }) => {
         </div>
 
         <button
-          className={`btn w-full ${
+          className={`btn w-full rounded-none ${
             mode ? "bg-gray-900 hover:bg-[#AB7442]" : "bg-[#AB7442] hover:bg-gray-900"
           } border-none text-gray-50  `}
         >
-          See all Crafts
+          Sub Category's Crafts
         </button>
       </div>
 
