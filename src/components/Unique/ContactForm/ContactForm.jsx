@@ -4,7 +4,7 @@ import { UserContext } from "../../../providers/ContextProvider/ContextProvider"
 const ContactForm = () => {
     const {mode} = useContext(UserContext)
     return (
-        <div className={`flex-1 p-5 border ${mode ? 'border-gray-300' : 'border-gray-700'}`}>
+        <div className={`p-5 border ${mode ? 'border-gray-300' : 'border-gray-700'}`}>
           <form className="space-y-3 text-black">
             <div className="flex flex-col xl:flex-row items-center gap-4">
               <div className="w-full">

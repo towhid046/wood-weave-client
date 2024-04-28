@@ -3,6 +3,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import { scrollToTop } from "../../utilities/scrollToTop";
 import { UserContext } from "../../providers/ContextProvider/ContextProvider";
 import SectionHeader from './../../components/Shared/SectionHeader/SectionHeader';
+import {Slide} from 'react-awesome-reveal'
 
 const CraftDetailsPage = () => {
 
@@ -35,10 +36,14 @@ const CraftDetailsPage = () => {
       description={`Discover the elegance of ${item_name} details, a ${subcategory_name} that epitomizes craftsmanship and beauty. From its intricate details to its natural charm, ${item_name} details adds sophistication to any space. Experience the allure of ${item_name} details and elevate your decor effortlessly!`}
       />
       <div className={`bg-base-100 flex lg:flex-row flex-col border p-5 justify-between max-w-6xl gap-8 items-start mx-auto ${mode ? 'border-gray-300' : 'border-gray-700'}`}>
-        <figure className="roundex-xl flex-1">
+          <Slide className="flex-1" direction="right">
+        <figure className="roundex-xl">
           <img className="w-full rounded-none" src={photoUrl} alt="Craft Img" />
         </figure>
-        <div className="space-y-3 flex-1">
+          </Slide>
+
+       <Slide className="flex-1">
+       <div className="space-y-3">
           <h2 className="md:text-4xl text-2xl mb-2 font-bold">{item_name}</h2>
           <h3 className="text-xl font-semibold">{subcategory_name}</h3>
           <p className="pb-2">
@@ -75,6 +80,7 @@ const CraftDetailsPage = () => {
             </div>
           </div>
         </div>
+       </Slide>
       </div>
     </section>
   );

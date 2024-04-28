@@ -4,6 +4,7 @@ import MyCraft from "../../components/Unique/MyCraft/MyCraft";
 import { useContext, useEffect, useState } from "react";
 import { scrollToTop } from "./../../utilities/scrollToTop";
 import { UserContext } from "../../providers/ContextProvider/ContextProvider";
+import { Slide } from 'react-awesome-reveal';
 
 const MyCraftPage = () => {
   const {user} = useContext(UserContext)
@@ -39,6 +40,7 @@ const MyCraftPage = () => {
       description={`Hey ${user.displayName}, In this page you can see all the crafts you have added and you can delete and update the craft you want. You also can filter the crafts by customization.`}
       />
       <div className="text-center mb-12">
+        <Slide direction="down">
         <select
           onChange={(e) => handleCustomization(e.target.value)}
           className="select focus:outline-none rounded-none select-bordered w-full max-w-xs"
@@ -49,6 +51,7 @@ const MyCraftPage = () => {
           <option value="yes">Yes</option>
           <option value="no">No</option>
         </select>
+        </Slide>
       </div>
       {
         crafts.length ? <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

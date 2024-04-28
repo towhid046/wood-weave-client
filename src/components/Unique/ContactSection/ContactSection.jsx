@@ -2,6 +2,7 @@ import SectionHeader from "./../../Shared/SectionHeader/SectionHeader";
 import ContactInfo from "./../ContactInfo/ContactInfo";
 import ContactForm from "./../ContactForm/ContactForm";
 import MapLeaflet from "./../MapLeaflet/MapLeaflet";
+import {Slide} from 'react-awesome-reveal'
 
 const ContactSection = () => {
   return (
@@ -12,10 +13,16 @@ const ContactSection = () => {
       />
       <div className="flex flex-col lg:flex-row justify-between gap-10">
         <div className="flex-1 space-y-3">
+          <Slide>
           <ContactInfo />
           <MapLeaflet />
+          </Slide>
         </div>
+        <div className="flex-1">
+        <Slide direction="right">
         <ContactForm />
+        </Slide>
+        </div>
       </div>
     </section>
   );

@@ -7,6 +7,7 @@ import { BiDollar } from "react-icons/bi";
 import { useContext } from "react";
 import { UserContext } from "../../../providers/ContextProvider/ContextProvider";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { Slide } from "react-awesome-reveal";
 
 const MyCraft = ({ craft, crafts, setCrafts }) => {
   const { mode } = useContext(UserContext);
@@ -56,51 +57,53 @@ const MyCraft = ({ craft, crafts, setCrafts }) => {
   };
 
   return (
-    <div className="bg-base-100 shadow-lg flex flex-col justify-between">
-      <figure className="relative cursor-pointer overflow-hidden">
-        <Link to={`/craft-details/${_id}`}>
-          <img
-            className="w-full h-64 hover:scale-125 transition ease-in-out duration-500"
-            src={photoUrl}
-            alt="Craft Img"
-          />
-        </Link>
-      </figure>
-      <div className="p-4">
-        <div className="mb-4 space-y-1">
-          <h2 className="text-2xl font-semibold mb-2">{item_name}</h2>
-          <div className="py-1 flex items-center text-xl text-[#e7a261]">
-            <BiDollar className="text-2xl text-" />
-            <strong>{price}</strong>
-          </div>
-          <p>
-            <em className="">Rating :</em> {rating}
-          </p>
-          <p>
-            <em className="">Customization :</em> {customization}
-          </p>
-          <p>
-            <em className="">Stock Status :</em> {stock_status}
-          </p>
-        </div>
-        <div className=" flex gap-4">
-          <button
-            onClick={() => handleDeleteCraft(_id)}
-            className={`btn rounded-none w-1/2
-            bg-red-600 border-none text-gray-50 hover:bg-red-800 `}
-          >
-            Delete <RiDeleteBin6Line />
-          </button>
-          <Link className="w-1/2" to={`/update-craft/${_id}`}>
-            <button
-              className={`btn rounded-none w-full  bg-[#AB7442]  border-none text-gray-50 hover:bg-[#9c6538] `}
-            >
-              Update <LuPencilLine />{" "}
-            </button>
+    <Slide direction="right">
+      <div className="bg-base-100 shadow-lg flex flex-col justify-between">
+        <figure className="relative cursor-pointer overflow-hidden">
+          <Link to={`/craft-details/${_id}`}>
+            <img
+              className="w-full h-64 hover:scale-125 transition ease-in-out duration-500"
+              src={photoUrl}
+              alt="Craft Img"
+            />
           </Link>
+        </figure>
+        <div className="p-4">
+          <div className="mb-4 space-y-1">
+            <h2 className="text-2xl font-semibold mb-2">{item_name}</h2>
+            <div className="py-1 flex items-center text-xl text-[#e7a261]">
+              <BiDollar className="text-2xl text-" />
+              <strong>{price}</strong>
+            </div>
+            <p>
+              <em className="">Rating :</em> {rating}
+            </p>
+            <p>
+              <em className="">Customization :</em> {customization}
+            </p>
+            <p>
+              <em className="">Stock Status :</em> {stock_status}
+            </p>
+          </div>
+          <div className=" flex gap-4">
+            <button
+              onClick={() => handleDeleteCraft(_id)}
+              className={`btn rounded-none w-1/2
+            bg-red-600 border-none text-gray-50 hover:bg-red-800 `}
+            >
+              Delete <RiDeleteBin6Line />
+            </button>
+            <Link className="w-1/2" to={`/update-craft/${_id}`}>
+              <button
+                className={`btn rounded-none w-full  bg-[#AB7442]  border-none text-gray-50 hover:bg-[#9c6538] `}
+              >
+                Update <LuPencilLine />{" "}
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </Slide>
   );
 };
 
