@@ -34,7 +34,7 @@ const CraftDetailsPage = () => {
       title={`${item_name} Details `}
       description={`Discover the elegance of ${item_name} details, a ${subcategory_name} that epitomizes craftsmanship and beauty. From its intricate details to its natural charm, ${item_name} details adds sophistication to any space. Experience the allure of ${item_name} details and elevate your decor effortlessly!`}
       />
-      <div className={`bg-base-100 flex border p-5 justify-between max-w-6xl gap-8 items-start mx-auto ${mode ? 'border-gray-300' : 'border-gray-700'}`}>
+      <div className={`bg-base-100 flex lg:flex-row flex-col border p-5 justify-between max-w-6xl gap-8 items-start mx-auto ${mode ? 'border-gray-300' : 'border-gray-700'}`}>
         <figure className="roundex-xl flex-1">
           <img className="w-full rounded-none" src={photoUrl} alt="Craft Img" />
         </figure>
