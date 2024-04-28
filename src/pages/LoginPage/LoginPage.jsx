@@ -7,9 +7,10 @@ import { LuEye, LuEyeOff } from "react-icons/lu";
 import { scrollToTop } from './../../utilities/scrollToTop';
 import swal from "sweetalert";
 import {  } from './../../providers/ContextProvider/ContextProvider';
+import { toast } from 'react-toastify';
 
 const Login = () => {
-  const { loginUser, logInWithGoogle, logInWithGithub, mode } =
+  const { loginUser, logInWithGoogle, logInWithGithub, mode, setLoading } =
     useContext(UserContext);
   const [isShowPassword, setIsShowPassword] = useState(false);
 
@@ -40,8 +41,9 @@ const Login = () => {
             autoClose: 5000,
             position: "top-center",
             theme: "dark",
-          }
+          },
         );
+        setLoading(false)
       });
   };
 
