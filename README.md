@@ -1,8 +1,18 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Website Name: WoodWeave (Client)
+### Live Link: https://wood-weave.web.app/
+#### This website is about the Jute & Wooden Crafts. Following are all the subcategories-
++ Wooden Furniture & Sculptures
++ Wooden Home Decor
++ Wooden Utensils and Kitchenware
++ Jute Home Decor
++ Jute Kitchenware & Utensils
++ Jute and wooden Jewellery
+### Features:
++ Dark mode/ Light mode
++ Registration
++ Login by email and password (only registered can)
++ Also login with Google and GitHub
++ A Logged in user can add new Craft item from the Add Craft page form
++ Logged in user can see their added crafts in the My Craft page
++ He/she can delete and update their crafts only not other's crafts
++ Log out user see all craft in the All Crafts Page
