@@ -20,10 +20,10 @@ const Footer = () => {
   const contacts = [
     {
       icon: <FiMapPin />,
-      text: "127 Midtown Manhattan, New York",
+      text: "223 Craftsman Lane, Asheville, North Carolina",
     },
     { icon: <LuPhone />, text: "+11 23456789123" },
-    { icon: <IoMailOutline />, text: "abc123@gmail.com" },
+    { icon: <IoMailOutline />, text: "xyz123@gmail.com" },
   ];
 
   const quickLinks = [
@@ -51,14 +51,14 @@ const Footer = () => {
               Experience the beauty of artisanal wood and jute crafts at
               Woodweave.
             </p>
-            <ul>
-            {contacts.map((contact, index) => (
-              <li key={index} className="flex gap-3">
-                <span className="text-lg">{contact.icon}</span>
-                <span>{contact.text}</span>
-              </li>
-            ))}
-          </ul>
+            <ul className="space-y-1">
+              {contacts.map((contact, index) => (
+                <li key={index} className="flex gap-3">
+                  <span className="text-lg">{contact.icon}</span>
+                  <span>{contact.text}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <nav>
@@ -102,10 +102,10 @@ const Footer = () => {
 
       <footer className="bg-base-200">
         <div className=" container md:flex-row flex-col flex justify-between  mx-auto px-4 items-center py-2 text-[13px] gap-3">
-        <ul className="flex gap-3 mt-4">
-              <li className="link link-hover">Terms of use</li> |
-              <li className="link link-hover">Privacy policy</li>
-            </ul>
+          <ul className="flex gap-3 mt-4">
+            <li className="link link-hover">Terms of use</li> |
+            <li className="link link-hover">Privacy policy</li>
+          </ul>
           <p>Copyright &copy; 2024 - All right reserved</p>
         </div>
       </footer>
