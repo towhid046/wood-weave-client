@@ -1,16 +1,17 @@
 import { useContext } from "react";
 import { UserContext } from "../../providers/ContextProvider/ContextProvider";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(UserContext);
+  const location = useLocation()
   if (loading) {
     return;
   }
   if (user) {
     return children;
   } else {
-    return <Navigate to={"/login"} />;
+    return <Navigate state={location?.pathname} to={"/login"} />;
   }
 };
 

@@ -37,8 +37,8 @@ const CraftDetailsPage = () => {
       />
       <div className={`bg-base-100 flex lg:flex-row flex-col border p-5 justify-between max-w-6xl gap-8 items-start mx-auto ${mode ? 'border-gray-300' : 'border-gray-700'}`}>
           <Slide className="flex-1" direction="right">
-        <figure className="roundex-xl">
-          <img className="w-full rounded-none" src={photoUrl} alt="Craft Img" />
+        <figure className="roundex-xl overflow-hidden">
+          <img className="w-full rounded-none hover:scale-125 transition ease-in-out duration-500 cursor-pointer" src={photoUrl} alt="Craft Img" />
         </figure>
           </Slide>
 

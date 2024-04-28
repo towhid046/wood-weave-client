@@ -70,7 +70,7 @@ const Login = () => {
         navigate(location?.state ? location.state : "/");
       })
       .catch((err) => {
-        console.error(err);
+        toast.error('Your github Email already exist!!')
       });
   };
 
