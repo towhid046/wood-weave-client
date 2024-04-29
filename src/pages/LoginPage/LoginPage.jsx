@@ -9,6 +9,7 @@ import swal from "sweetalert";
 import {} from "./../../providers/ContextProvider/ContextProvider";
 import { toast } from "react-toastify";
 import { Slide } from "react-awesome-reveal";
+import MyHelmate from "./../../components/Shared/MyHelmate/MyHelmate";
 
 const Login = () => {
   const { loginUser, logInWithGoogle, logInWithGithub, mode, setLoading } =
@@ -70,12 +71,14 @@ const Login = () => {
         navigate(location?.state ? location.state : "/");
       })
       .catch((err) => {
-        toast.error('Your github Email already exist!!')
+        toast.error("Your github Email already exist!!");
       });
   };
 
   return (
     <div>
+      <MyHelmate title="Login" />
+
       <div className="hero md:min-h-screen container-fluid pt-12 pb-8 mb-12">
         <div className="w-full px-4">
           <Slide direction="down">

@@ -3,6 +3,7 @@ import SectionHeader from "./../../components/Shared/SectionHeader/SectionHeader
 import CraftItem from "../../components/Unique/CraftItem/CraftItem";
 import { useEffect } from "react";
 import { scrollToTop } from "../../utilities/scrollToTop";
+import MyHelmate from './../../components/Shared/MyHelmate/MyHelmate';
 const SubCategoryPage = () => {
   useEffect(() => {
     scrollToTop();
@@ -12,6 +13,7 @@ const SubCategoryPage = () => {
 
   return (
     <section className="min-h-screen container mx-auto px-4 mb-20">
+      <MyHelmate title="Sub Category"/>
       {crafts.length ? (
         <>
           <SectionHeader

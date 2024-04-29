@@ -5,12 +5,17 @@ import ContactSection from "./../../components/Unique/ContactSection/ContactSect
 import { useEffect } from "react";
 import { scrollToTop } from "../../utilities/scrollToTop";
 import CraftCategories from './../../components/Unique/CraftCategories/CraftCategories';
+import MyHelmate from './../../components/Shared/MyHelmate/MyHelmate';
 const HomePage = () => {
   useEffect(() => {
     scrollToTop();
   }, []);
   return (
     <div>
+      <MyHelmate
+      title='Home'
+      />
+
       <Hero />
       <CraftItems />
       <CraftCategories/>

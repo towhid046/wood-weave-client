@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import MyHelmate from './../../components/Shared/MyHelmate/MyHelmate';
 const NotFoundPage = () => {
   return (
     <section className="container mx-auto px-4 flex flex-col justify-center items-center min-h-[100vh]">
+      <MyHelmate title="Not Found"/>
 
         <h2 className="md:text-5xl text-4xl font-bold text-gray-400">Opps! Sorry;</h2>
         <h1 className="md:text-8xl text-6xl  font-bold text-gray-400 pt-3">404</h1>

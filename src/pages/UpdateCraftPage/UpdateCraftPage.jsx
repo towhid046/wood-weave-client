@@ -4,6 +4,7 @@ import { useContext, useEffect } from "react";
 import { UserContext } from "../../providers/ContextProvider/ContextProvider";
 import { scrollToTop } from "./../../utilities/scrollToTop";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import MyHelmate from './../../components/Shared/MyHelmate/MyHelmate';
 
 const UpdateCraftPage = () => {
   const { mode } = useContext(UserContext);
@@ -152,6 +153,7 @@ const UpdateCraftPage = () => {
 
   return (
     <section className="container mx-auto px-2 mb-20">
+      <MyHelmate title="Update Craft"/>
       <SectionHeader
         title="Update the Craft"
         description="Craft Update: Admins refine their creations, maintaining creative control. Each admin can only update their added crafts, ensuring ownership and relevance"

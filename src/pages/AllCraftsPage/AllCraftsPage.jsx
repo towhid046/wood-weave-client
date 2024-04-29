@@ -4,6 +4,7 @@ import { useContext, useEffect } from "react";
 import { scrollToTop } from "./../../utilities/scrollToTop";
 import { UserContext } from "../../providers/ContextProvider/ContextProvider";
 import { Slide } from "react-awesome-reveal";
+import MyHelmate from "./../../components/Shared/MyHelmate/MyHelmate";
 
 const AllCraftsPage = () => {
   const crafts = useLoaderData();
@@ -36,6 +37,7 @@ const AllCraftsPage = () => {
 
   return (
     <section className="container mx-auto px-4 min-h-screen mb-20">
+      <MyHelmate title="All Crafts" />
       <SectionHeader
         title={`All Crafts Collection : ${crafts?.length}`}
         description="Explore All diverse crafts selection. Each item offers unique details and craftsmanship. Click 'View Details' to learn more about each craft"

@@ -3,6 +3,7 @@ import SectionHeader from "../../components/Shared/SectionHeader/SectionHeader";
 import { useContext, useEffect } from "react";
 import { UserContext } from "../../providers/ContextProvider/ContextProvider";
 import { scrollToTop } from "./../../utilities/scrollToTop";
+import MyHelmate from './../../components/Shared/MyHelmate/MyHelmate';
 
 const AddCraftPage = () => {
   useEffect(() => {
@@ -129,6 +130,9 @@ const AddCraftPage = () => {
 
   return (
     <section className="container mx-auto px-2 mb-32">
+      <MyHelmate
+      title="Add Craft"
+      />
       <SectionHeader
         title="Add New Craft"
         description=" Add New Craft Section and Unleash Your Creative Vision. Dive deep into a world of endless possibilities as you bring your ideas to life. With a user-friendly interface designed for efficiency, crafting your masterpiece has never been easier."

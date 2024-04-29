@@ -4,6 +4,7 @@ import { scrollToTop } from "../../utilities/scrollToTop";
 import { UserContext } from "../../providers/ContextProvider/ContextProvider";
 import SectionHeader from './../../components/Shared/SectionHeader/SectionHeader';
 import {Slide} from 'react-awesome-reveal'
+import MyHelmate from "../../components/Shared/MyHelmate/MyHelmate";
 
 const CraftDetailsPage = () => {
 
@@ -31,6 +32,8 @@ const CraftDetailsPage = () => {
 
   return (
     <section className="container mx-auto px-4 min-h-screen pb-14">
+      <MyHelmate title="Craft details" />
+
       <SectionHeader
       title={`${item_name} Details `}
       description={`Discover the elegance of ${item_name} details, a ${subcategory_name} that epitomizes craftsmanship and beauty. From its intricate details to its natural charm, ${item_name} details adds sophistication to any space. Experience the allure of ${item_name} details and elevate your decor effortlessly!`}

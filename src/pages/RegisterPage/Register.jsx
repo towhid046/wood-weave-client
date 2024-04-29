@@ -5,6 +5,7 @@ import { LuEye, LuEyeOff } from "react-icons/lu";
 import { scrollToTop } from "./../../utilities/scrollToTop";
 import swal from "sweetalert";
 import { Slide } from "react-awesome-reveal";
+import MyHelmate from './../../components/Shared/MyHelmate/MyHelmate';
 
 const Register = () => {
   const { createUser, updateUserProfile, setLoading, mode } =
@@ -92,6 +93,7 @@ const Register = () => {
 
   return (
     <div>
+      <MyHelmate title="Registration"/>
       <div className="hero md:min-h-screen container-fluid pt-12 mb-16">
         <div className="w-full px-4">
           <Slide direction="down">

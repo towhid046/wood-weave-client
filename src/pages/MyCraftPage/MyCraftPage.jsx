@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { scrollToTop } from "./../../utilities/scrollToTop";
 import { UserContext } from "../../providers/ContextProvider/ContextProvider";
 import { Slide } from 'react-awesome-reveal';
+import MyHelmate from './../../components/Shared/MyHelmate/MyHelmate';
 
 const MyCraftPage = () => {
   const {user} = useContext(UserContext)
@@ -35,6 +36,7 @@ const MyCraftPage = () => {
 
   return (
     <section className="min-h-screen container mx-auto px-4 py-10  mb-20">
+      <MyHelmate title="My Craft"/>
       <SectionHeader 
       title={`Your Added Crafts : ${crafts?.length}`}
       description={`Hey ${user.displayName}, In this page you can see all the crafts you have added and you can delete and update the craft you want. You also can filter the crafts by customization.`}
